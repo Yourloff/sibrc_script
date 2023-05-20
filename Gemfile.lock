@@ -1,0 +1,21 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    json (2.6.3)
+    nokogiri (1.14.3-x64-mingw32)
+      racc (~> 1.4)
+    racc (1.6.2)
+    rubyzip (2.3.2)
+    sablon (0.3.2)
+      nokogiri (>= 1.8.5)
+      rubyzip (>= 1.1.1)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  json
+  sablon
+
+BUNDLED WITH
+   2.4.12
