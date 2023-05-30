@@ -1,6 +1,4 @@
-require 'sablon'
-require 'json'
+require_relative 'docs/docx'
 
-data = JSON.parse File.read('data.json')
-template = Sablon.template 'act.docx'
-template.render_to_file('output.docx', data)
+doc = Docx::Document.new('data.json', 'templates/act.docx')
+doc.write_data_to_document
