@@ -2,9 +2,10 @@ require 'sablon'
 require 'json'
 require 'fileutils'
 
-module Docx
+module ActDocx
   class Document
     ACTS_DIRECTORY = 'acts'
+    OUTPUT_FILE = 'combined.docx'
 
     def initialize(data_file, template_file)
       @data = read_data_json(data_file)
@@ -19,6 +20,8 @@ module Docx
         @template.render_to_file(output_file, hash)
         puts "Документ сохранен: #{output_file}"
       end
+
+      system("python3 docs/merged_docx.py")
 
       puts "Документы успешно созданы в каталоге #{ACTS_DIRECTORY}"
     end
