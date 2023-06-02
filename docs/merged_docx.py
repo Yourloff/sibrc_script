@@ -4,15 +4,20 @@ import os
 def merge_documents(directory, output_file):
     merged_doc = Document()
 
-    for filename in os.listdir(directory):
+    for i, filename in enumerate(os.listdir(directory)):
         if filename.endswith(".docx"):
             file_path = os.path.join(directory, filename)
-            doc = Document(file_path)
+            try:
+                doc = Document(file_path)
 
-            for element in doc.element.body:
-                merged_doc.element.body.append(element)
+                if i != 0:
+                    merged_doc.add_page_break()
+
+                for element in doc.element.body:
+                    merged_doc.element.body.append(element)
+            except Exception as e:
+                print(f"Ошибка при обработке документа {filename}: {str(e)}")
 
     merged_doc.save(output_file)
 
-# Пример использования:
 merge_documents(os.path.join(os.getcwd(), 'acts'), "объединенный_документ.docx")

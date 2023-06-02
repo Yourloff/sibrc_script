@@ -21,7 +21,7 @@ module ActDocx
         puts "Документ сохранен: #{output_file}"
       end
 
-      system("python3 docs/merged_docx.py")
+      #system("python3 docs/merged_docx.py")
 
       puts "Документы успешно созданы в каталоге #{ACTS_DIRECTORY}"
     end
