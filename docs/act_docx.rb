@@ -4,7 +4,7 @@ require 'fileutils'
 
 module ActDocx
   class Document
-    ACTS_DIRECTORY = 'acts'
+    ACTS_DIRECTORY = 'acts_docx'
     OUTPUT_FILE = 'combined.docx'
 
     def initialize(data_file, template_file)
@@ -15,7 +15,7 @@ module ActDocx
     def write_data_to_document
       FileUtils.mkdir_p(ACTS_DIRECTORY)
 
-      @data.each_with_index do |hash, index|
+      @data['products'].each_with_index do |hash, index|
         output_file = "#{ACTS_DIRECTORY}/#{get_filename(index)}"
         @template.render_to_file(output_file, hash)
         puts "Документ сохранен: #{output_file}"

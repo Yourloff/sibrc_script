@@ -28,13 +28,13 @@ class WorkExcel
     products_data[:products] = products
     json_data = JSON.generate(products_data)
 
-    File.open("#{@name_org}.json", 'w') do |file|
+    File.open("acts_data/products_#{@name_org}.json", 'w') do |file|
       file.write(json_data)
     end
   end
 
   def write_act_json(data_hash)
     json_data = JSON.generate(data_hash)
-    File.open("acts_#{@name_org}.json", 'w') { |file| file.write(json_data) }
+    File.open("acts_data/acts_#{@name_org}.json", 'w') { |file| file.write(json_data) }
   end
 end
