@@ -18,7 +18,9 @@ class WorkExcel
         "product": {
           "denomination": row[0].value.gsub(/\s+/, " "),
           "invent_num": row[1].value.to_s,
-          "create_manufacture": row[2].value.strftime("%d.%m.%Y")
+          "create_manufacture": row[2].value.strftime("%d.%m.%Y"),
+          "condition_device": [{ name: '' }],
+          "diagnostics": [{ name: '' }]
         }
       }
 

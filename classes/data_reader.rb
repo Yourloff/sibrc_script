@@ -6,6 +6,6 @@ class DataReader
   end
 
   def read
-    JSON.parse(File.read("#{@file}.json"))
+    JSON.parse(File.read("acts_data/products_#{@file}.json"))
   end
 end

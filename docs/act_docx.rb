@@ -20,16 +20,9 @@ module ActDocx
 
       products.each_with_index do |hash, index|
         @data.merge!(products[index])
-
         output_file = "#{ACTS_DIRECTORY}/#{get_filename(index)}"
-        begin
           @template.render_to_file(output_file, @data)
-        rescue Sablon::ContextError => e
-          puts "Ошибка при записи в документ Word: #{e.message}"
-        end
-
         puts "Документ сохранен: #{output_file}"
-
         @data.delete('product')
       end
 
@@ -47,11 +40,6 @@ module ActDocx
     def get_filename(index)
       formatted_date_time = Time.now.strftime("%d%m%y%H%M%S")
       "#{formatted_date_time}_#{index + 1}.docx"
-    end
-
-    # проверка ключей
-    def check_keys(key)
-
     end
   end
 end
